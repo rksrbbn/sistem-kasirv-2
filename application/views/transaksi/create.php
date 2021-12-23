@@ -51,10 +51,23 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="total">Total Transaksi*</label>
-                                            <input class="form-control <?= form_error('total') ? 'is-invalid' : '' ?>" type="text" name="total" min="0" placeholder="Total Transaksi" />
+                                            <label for="kd_produk">Kode Produk*</label>
+                                            <select class="form-control <?= form_error('kd_produk') ? 'is-invalid' : '' ?>" name="kd_produk">
+                                                <?php foreach($produk as $p): ?>
+                                                    <option value="<?= $p->kd_produk; ?>"> <?= $p->kd_produk; ?> : <?= $p->nama; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                             <div class="invalid-feedback">
-                                                <?= form_error('total') ?>
+                                                <?= form_error('kd_produk') ?>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="qty">Quantity</label>
+                                            <input class="form-control <?= form_error('qty') ? 'is-invalid' : '' ?>" type="number" name="qty" min="0" />
+                                            <div class="invalid-feedback">
+                                                <?= form_error('qty') ?>
                                             </div>
                                         </div>
 

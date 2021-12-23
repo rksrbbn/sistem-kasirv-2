@@ -7,6 +7,7 @@ class Transaksi extends CI_Controller
     {
         parent::__construct();
         $this->load->model('transaksi_model');
+        $this->load->model('produk_model');
         $this->load->library('form_validation');
     }
 
@@ -21,22 +22,30 @@ class Transaksi extends CI_Controller
     {
         $data['title'] = 'Transaksi | Create';
         $data['kasir'] = $this->transaksi_model->getKasir();
+        $data['produk'] = $this->produk_model->getAll();
         $this->load->view('transaksi/create', $data);
     }
 
     public function save()
     {
         $this->form_validation->set_rules('tanggal', 'Tanggal Transaksi', 'trim|required');
-        $this->form_validation->set_rules('total', 'Total', 'trim|required');
+        $this->form_validation->set_rules('qty', 'QTY', 'trim|required');
 
         if ($this->form_validation->run() == true) {
-            $data['tanggal'] = $this->input->post('tanggal');
-            $data['total'] = $this->input->post('total');
-            $data['kasir_id'] = $this->input->post('kasir_id');
-            $this->transaksi_model->save($data);
-            $this->session->set_flashdata('pesan', 'Data berhasil di simpan');
-            redirect('transaksi');
+            $kd_produk = $this->input->post('kd_produk');
+            $harga = $this->produk_model->getHarga($kd_produk);
+            $qty = $this->input->post('qty');
+            // $total = $harga * $qty;
+            var_dump($harga);
+
+            // $data['tanggal'] = $this->input->post('tanggal');
+            // $data['total'] = $this->input->post('total');
+            // $data['kasir_id'] = $this->input->post('kasir_id');
+            // $this->transaksi_model->save($data);
+            // $this->session->set_flashdata('pesan', 'Data berhasil di simpan');
+            // redirect('transaksi');
         } else {
+            $data['produk'] = $this->produk_model->getAll();
             $data['kasir'] = $this->transaksi_model->getKasir();
             $this->load->view('transaksi/create', $data);
         }

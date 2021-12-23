@@ -11,6 +11,12 @@ class Produk_model extends CI_Model
         return $this->db->query($sql)->result();
     }
 
+    public function getHarga($kd)
+    {
+        $sql = "SELECT harga FROM produk WHERE kd_produk = '$kd'";
+        return $this->db->query($sql)->result();
+    }
+
     public function getById($id)
     {
         return $this->db->get_where($this->table, ["kd_produk" => $id])->row();

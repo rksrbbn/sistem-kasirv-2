@@ -24,8 +24,6 @@ class Transaksi_model extends CI_Model
 
     public function save($data)
     {
-        // $sql = "INSERT INTO penjualan (tanggal, total, id_transaksi)  VALUES ($data['tanggal'], $data['total']) WHERE transaksi_detail.id_transaksi = ?";
-        // $this->db->query($sql, array($id)); 
         return $this->db->insert($this->table, $data);
     }
 
