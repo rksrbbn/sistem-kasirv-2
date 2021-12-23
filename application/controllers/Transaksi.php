@@ -18,6 +18,14 @@ class Transaksi extends CI_Controller
         $this->load->view('transaksi/list', $data);
     }
 
+    public function detail($id)
+    {
+        $data['detail'] =$this->transaksi_model->getDetail($id);
+        // var_dump($data['detail']);
+        $data['title'] = 'Detail Transaksi';
+        $this->load->view('transaksi/detail', $data);
+    }
+
     public function create()
     {
         $data['title'] = 'Transaksi | Create';
@@ -33,17 +41,21 @@ class Transaksi extends CI_Controller
 
         if ($this->form_validation->run() == true) {
             $kd_produk = $this->input->post('kd_produk');
-            $harga = $this->produk_model->getHarga($kd_produk);
+            $harga = $this->produk_model->getById($kd_produk)->harga;
             $qty = $this->input->post('qty');
-            // $total = $harga * $qty;
-            var_dump($harga);
+            $total = $harga * $qty;
 
-            // $data['tanggal'] = $this->input->post('tanggal');
-            // $data['total'] = $this->input->post('total');
-            // $data['kasir_id'] = $this->input->post('kasir_id');
-            // $this->transaksi_model->save($data);
-            // $this->session->set_flashdata('pesan', 'Data berhasil di simpan');
-            // redirect('transaksi');
+            $data2['kd_produk'] = $kd_produk;
+            $data2['harga'] = $harga;
+            $data2['qty'] = $qty;
+
+
+            $data['tanggal'] = $this->input->post('tanggal');
+            $data['total'] = $total;
+            $data['kasir_id'] = $this->input->post('kasir_id');
+            $this->transaksi_model->save($data,$data2);
+            $this->session->set_flashdata('pesan', 'Data berhasil di simpan');
+            redirect('transaksi');
         } else {
             $data['produk'] = $this->produk_model->getAll();
             $data['kasir'] = $this->transaksi_model->getKasir();

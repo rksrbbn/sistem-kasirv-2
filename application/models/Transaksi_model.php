@@ -22,8 +22,16 @@ class Transaksi_model extends CI_Model
         return $this->db->query($sql)->result();
     }
 
-    public function save($data)
+    public function getDetail($id)
+    {   
+        $sql = "SELECT * FROM transaksi_detail WHERE id_transaksi = $id";
+        return $this->db->query($sql)->result();
+    }
+
+    public function save($data,$data2)
     {
+        $data2['id_transaksi'] = $this->db->insert_id();
+        $this->db->insert('transaksi_detail', $data2);
         return $this->db->insert($this->table, $data);
     }
 
