@@ -27,71 +27,70 @@
                 <!-- Topbar -->
 
                 <?php $this->load->view('layout/navbar'); ?>
-                
-                <!-- End of Topbar -->
-                
-                <?php $this->load->view('layout/breadcrum'); ?>
 
-                <div class="continer">
+                <!-- End of Topbar -->
+
+
+                <div class="container">
                     <div class="row">
                         <div class="col">
+                            <?php $this->load->view('layout/breadcrum'); ?>
+                            <div class="card mb-3">
+                                <div class="card-header">
 
+                                    <a href="<?= site_url('kasir/') ?>"><i class="fas fa-arrow-left"></i>
+                                        Back</a>
+                                </div>
+                                <div class="card-body">
+
+                                    <form action="<?= site_url('kasir/update'); ?>" method="post" enctype="multipart/form-data">
+
+                                        <input type="hidden" name="id_kasir" value="<?= $kasir->id_kasir ?>" />
+
+                                        <div class="form-group">
+                                            <label for="id_kasir">ID Kasir</label>
+                                            <input class="form-control <?= form_error('id_kasir') ? 'is-invalid' : '' ?>" type="text" name="id_kasir" readonly min="0" placeholder="ID Kasir" value="<?= $kasir->id_kasir ?>" />
+                                            <div class="invalid-feedback">
+                                                <?= form_error('id_kasir') ?>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="nama">Nama Kasir*</label>
+                                            <input class="form-control <?= form_error('nama') ? 'is-invalid' : '' ?>" type="text" name="nama" min="0" placeholder="Nama Kasir" value="<?= $kasir->nama ?>" />
+                                            <div class="invalid-feedback">
+                                                <?= form_error('nama') ?>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="jenis_kelamin">Jenis Kelamin*</label>
+                                            <select class="form-control <?= form_error('jenis_kelamin') ? 'is-invalid' : '' ?>" name="jenis_kelamin">
+
+                                                <option value="L">Laki-laki</option>
+                                                <option value="P">Perempuan</option>
+
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                <?= form_error('jenis_kelamin') ?>
+                                            </div>
+                                        </div>
+
+                                        <input class="btn btn-success" type="submit" name="btn" value="Save" />
+                                    </form>
+
+                                </div>
+
+                                <div class="card-footer small text-muted">
+                                    * required fields
+                                </div>
+
+
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card mb-3">
-                    <div class="card-header">
-
-                        <a href="<?= site_url('kasir/') ?>"><i class="fas fa-arrow-left"></i>
-                            Back</a>
-                    </div>
-                    <div class="card-body">
-
-                        <form action="<?= site_url('kasir/update'); ?>" method="post" enctype="multipart/form-data">
-
-                            <input type="hidden" name="id_kasir" value="<?= $kasir->id_kasir ?>" />
-
-                            <div class="form-group">
-                                <label for="id_kasir">ID Kasir</label>
-                                <input class="form-control <?= form_error('id_kasir') ? 'is-invalid' : '' ?>" type="text" name="id_kasir" readonly min="0" placeholder="ID Kasir" value="<?= $kasir->id_kasir ?>" />
-                                <div class="invalid-feedback">
-                                    <?= form_error('id_kasir') ?>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="nama">Nama Kasir*</label>
-                                <input class="form-control <?= form_error('nama') ? 'is-invalid' : '' ?>" type="text" name="nama" min="0" placeholder="Nama Kasir" value="<?= $kasir->nama ?>" />
-                                <div class="invalid-feedback">
-                                    <?= form_error('nama') ?>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="jenis_kelamin">Jenis Kelamin*</label>
-                                <select class="form-control <?= form_error('jenis_kelamin') ? 'is-invalid' : '' ?>" name="jenis_kelamin">
-                                    
-                                        <option value="L">Laki-laki</option>
-                                        <option value="P">Perempuan</option>
-                                    
-                                </select>
-                                <div class="invalid-feedback">
-                                    <?= form_error('jenis_kelamin') ?>
-                                </div>
-                            </div>
-
-                            <input class="btn btn-success" type="submit" name="btn" value="Save" />
-                        </form>
-
-                    </div>
-
-                    <div class="card-footer small text-muted">
-                        * required fields
-                    </div>
-
-
-                </div>
 
             </div>
             <!-- End of Main Content -->

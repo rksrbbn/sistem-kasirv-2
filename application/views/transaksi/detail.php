@@ -34,8 +34,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col">
+                            <?php $this->load->view('layout/breadcrum'); ?>
                             <div class="card mb-3">
-                                
+
                                 <div class="card-body">
                                     <?php if ($this->session->flashdata('pesan')) : ?>
                                         <div class="alert alert-primary" role="alert">
