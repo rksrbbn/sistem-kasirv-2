@@ -28,11 +28,15 @@ class Transaksi_model extends CI_Model
         return $this->db->query($sql)->result();
     }
 
-    public function save($data,$data2)
+    public function save($data,$data2,$data_p)
     {
-        $data2['id_transaksi'] = $this->db->insert_id();
+        $this->db->insert($this->table, $data);
+        $last_id = $this->db->insert_id();
+        $data2['id_transaksi'] = $last_id;
         $this->db->insert('transaksi_detail', $data2);
-        return $this->db->insert($this->table, $data);
+        $data_p['id_transaksi'] = $last_id;
+        $this->db->insert('penjualan', $data_p);
+
     }
 
     public function update($data, $id)

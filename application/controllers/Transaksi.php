@@ -45,15 +45,18 @@ class Transaksi extends CI_Controller
             $qty = $this->input->post('qty');
             $total = $harga * $qty;
 
+            $data_p['tanggal'] = $this->input->post('tanggal');
+            $data_p['total'] = $total;
+
             $data2['kd_produk'] = $kd_produk;
             $data2['harga'] = $harga;
             $data2['qty'] = $qty;
 
-
             $data['tanggal'] = $this->input->post('tanggal');
             $data['total'] = $total;
             $data['kasir_id'] = $this->input->post('kasir_id');
-            $this->transaksi_model->save($data,$data2);
+
+            $this->transaksi_model->save($data,$data2,$data_p);
             $this->session->set_flashdata('pesan', 'Data berhasil di simpan');
             redirect('transaksi');
         } else {
