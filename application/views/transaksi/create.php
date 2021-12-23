@@ -33,6 +33,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col">
+                        <?php $this->load->view('layout/breadcrum'); ?>
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <a href="<?= site_url('transaksi/') ?>"><i class="fas fa-arrow-left"></i> Back</a>

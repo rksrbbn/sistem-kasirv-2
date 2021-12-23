@@ -34,15 +34,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col">
+                            <?php $this->load->view('layout/breadcrum'); ?>
                             <div class="card mb-3">
-                                
+
                                 <div class="card-body">
                                     <?php if ($this->session->flashdata('pesan')) : ?>
                                         <div class="alert alert-primary" role="alert">
                                             <?= $this->session->flashdata('pesan'); ?>
                                         </div>
                                     <?php endif; ?>
-            
+
                                     <div class="table-responsive">
                                         <table class="display table table-striped table-hover" id="dataTable" width="80%" cellspacing="0">
                                             <thead>
@@ -70,7 +71,7 @@
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
-            
+
                                             </tbody>
                                         </table>
                                     </div>
