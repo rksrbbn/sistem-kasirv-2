@@ -42,23 +42,32 @@ class Transaksi extends CI_Controller
         if ($this->form_validation->run() == true) {
             $kd_produk = $this->input->post('kd_produk');
             $harga = $this->produk_model->getById($kd_produk)->harga;
+            $stok = $this->produk_model->getById($kd_produk)->stok;
             $qty = $this->input->post('qty');
             $total = $harga * $qty;
+            
+            if($stok >= $qty){
 
-            $data_p['tanggal'] = $this->input->post('tanggal');
-            $data_p['total'] = $total;
+                $data_p['tanggal'] = $this->input->post('tanggal');
+                $data_p['total'] = $total;
 
-            $data2['kd_produk'] = $kd_produk;
-            $data2['harga'] = $harga;
-            $data2['qty'] = $qty;
+                $data2['kd_produk'] = $kd_produk;
+                $data2['harga'] = $harga;
+                $data2['qty'] = $qty;
 
-            $data['tanggal'] = $this->input->post('tanggal');
-            $data['total'] = $total;
-            $data['kasir_id'] = $this->input->post('kasir_id');
+                $data['tanggal'] = $this->input->post('tanggal');
+                $data['total'] = $total;
+                $data['kasir_id'] = $this->input->post('kasir_id');
 
-            $this->transaksi_model->save($data,$data2,$data_p);
-            $this->session->set_flashdata('pesan', 'Data berhasil di simpan');
-            redirect('transaksi');
+                $this->produk_model->de_stock($kd_produk,$qty);
+                $this->transaksi_model->save($data,$data2,$data_p);
+                $this->session->set_flashdata('pesan', 'Data berhasil di simpan');
+                redirect('transaksi');
+            } else {
+                $data['produk'] = $this->produk_model->getAll();
+                $data['kasir'] = $this->transaksi_model->getKasir();
+                $this->load->view('transaksi/create', $data);
+            }
         } else {
             $data['produk'] = $this->produk_model->getAll();
             $data['kasir'] = $this->transaksi_model->getKasir();

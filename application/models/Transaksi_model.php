@@ -36,7 +36,7 @@ class Transaksi_model extends CI_Model
         $this->db->insert('transaksi_detail', $data2);
         $data_p['id_transaksi'] = $last_id;
         $this->db->insert('penjualan', $data_p);
-
+        
     }
 
     public function update($data, $id)

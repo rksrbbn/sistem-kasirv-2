@@ -35,44 +35,42 @@
                     <div class="row">
                         <div class="col">
                             <div class="card mb-3">
-                            <div class="card-header">
-                                    <a href="<?= site_url('transaksi/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
-                                </div>
+                                
                                 <div class="card-body">
                                     <?php if ($this->session->flashdata('pesan')) : ?>
                                         <div class="alert alert-primary" role="alert">
                                             <?= $this->session->flashdata('pesan'); ?>
                                         </div>
                                     <?php endif; ?>
-
+            
                                     <div class="table-responsive">
                                         <table class="display table table-striped table-hover" id="dataTable" width="80%" cellspacing="0">
                                             <thead>
                                                 <tr>
+                                                    <th>ID</th>
+                                                    <th>Tanggal</th>
+                                                    <th>Total</th>
                                                     <th>ID Transaksi</th>
-                                                    <th>Kode Produk</th>
-                                                    <th>Harga</th>
-                                                    <th>Quantity</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($detail as $d) : ?>
+                                                <?php foreach ($penjualan as $p) : ?>
                                                     <tr>
                                                         <td width="150">
-                                                            <?= $d->id_transaksi ?>
+                                                            <?= $p->id ?>
                                                         </td>
                                                         <td>
-                                                            <?= $d->kd_produk ?>
+                                                            <?= $p->tanggal ?>
                                                         </td>
                                                         <td>
-                                                            <?= $d->harga ?>
+                                                            <?= $p->total ?>
                                                         </td>
                                                         <td>
-                                                            <?= $d->qty ?>
+                                                            <?= $p->id_transaksi ?>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
-
+            
                                             </tbody>
                                         </table>
                                     </div>

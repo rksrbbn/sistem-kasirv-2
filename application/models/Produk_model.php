@@ -11,10 +11,10 @@ class Produk_model extends CI_Model
         return $this->db->query($sql)->result();
     }
 
-    public function getHarga($kd)
+    public function de_stock($kd,$qty)
     {
-        $sql = "SELECT harga FROM produk WHERE kd_produk = '$kd'";
-        return $this->db->query($sql)->result();
+        $sql = "UPDATE produk SET stok = stok - $qty WHERE kd_produk = '$kd'";
+        $this->db->query($sql);
     }
 
     public function getById($id)
