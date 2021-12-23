@@ -57,4 +57,3 @@ $route['produk'] = 'produk';
 $route['penjualan'] = 'penjualan';
 $route['transaksi'] = 'transaksi';
 $route['kasir'] = 'kasir';
-$route['nilai'] = 'nilai';

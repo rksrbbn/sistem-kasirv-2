@@ -27,7 +27,6 @@ class Kasir extends CI_Controller
     {
         
         $this->form_validation->set_rules('nama', 'Nama Kasir', 'required');
-        $this->form_validation->set_rules('kasir_id', 'ID Kasir', 'required');
 
         if ($this->form_validation->run() == true) {
 

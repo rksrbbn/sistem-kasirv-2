@@ -35,9 +35,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="card mb-3">
-                                <div class="card-header d-flex align-items-center">
-                                    <a href="<?= site_url('dosen/create') ?>"><i class="fas fa-plus"></i> Add New</a>
-                                </div>
+                                
                                 <div class="card-body">
                                     <?php if ($this->session->flashdata('pesan')) : ?>
                                         <div class="alert alert-primary" role="alert">
@@ -49,31 +47,26 @@
                                         <table class="display table table-striped table-hover" id="dataTable" width="80%" cellspacing="0">
                                             <thead>
                                                 <tr>
-                                                    <th>kd_dosen</th>
-                                                    <th>nama</th>
-                                                    <th>alamat</th>
-                                                    <th>mapel</th>
-                                                    <th>Action</th>
+                                                    <th>ID</th>
+                                                    <th>Tanggal</th>
+                                                    <th>Total</th>
+                                                    <th>ID Transaksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($dosens as $dosen) : ?>
+                                                <?php foreach ($penjualan as $p) : ?>
                                                     <tr>
                                                         <td width="150">
-                                                            <?= $dosen->kd_dosen ?>
+                                                            <?= $p->id ?>
                                                         </td>
                                                         <td>
-                                                            <?= $dosen->nama_dosen ?>
+                                                            <?= $p->tanggal ?>
                                                         </td>
                                                         <td>
-                                                            <?= $dosen->alamat_dosen ?>
+                                                            <?= $p->total ?>
                                                         </td>
                                                         <td>
-                                                            <?= $dosen->nama_mapel ?>
-                                                        </td>
-                                                        <td width="250">
-                                                            <a href="<?= site_url('dosen/edit/' . $dosen->kd_dosen) ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
-                                                            <a onclick="deleteConfirm('<?= site_url('dosen/delete/' . $dosen->kd_dosen) ?>')" href="#!" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                            <?= $p->id_transaksi ?>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
