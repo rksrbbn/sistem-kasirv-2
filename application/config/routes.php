@@ -54,7 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['produk'] = 'produk';
-$route['dosen'] = 'dosen';
-$route['jurusan'] = 'jurusan';
+$route['penjualan'] = 'penjualan';
+$route['transaksi'] = 'transaksi';
 $route['kasir'] = 'kasir';
 $route['nilai'] = 'nilai';

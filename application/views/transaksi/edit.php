@@ -40,40 +40,47 @@
                 <div class="card mb-3">
                     <div class="card-header">
 
-                        <a href="<?= site_url('jurusan/') ?>"><i class="fas fa-arrow-left"></i>
+                        <a href="<?= site_url('transaksi/') ?>"><i class="fas fa-arrow-left"></i>
                             Back</a>
                     </div>
                     <div class="card-body">
 
-                        <form action="<?= site_url('jurusan/update'); ?>" method="post" enctype="multipart/form-data">
+                        <form action="<?= site_url('transaksi/update'); ?>" method="post" enctype="multipart/form-data">
 
-                            <input type="hidden" name="kode" value="<?= $jurusan->kd_jurusan ?>" />
 
                             <div class="form-group">
-                                <label for="kd_jurusan">Kode jurusan</label>
-                                <input class="form-control <?= form_error('kd_jurusan') ? 'is-invalid' : '' ?>" type="text" name="kd_jurusan" readonly min="0" placeholder="Kode jurusan" value="<?= $jurusan->kd_jurusan ?>" />
+                                <label for="id_transaksi">ID Transaksi</label>
+                                <input class="form-control <?= form_error('id_transaksi') ? 'is-invalid' : '' ?>" type="text" name="id_transaksi" readonly min="0" placeholder="ID Transaksi" value="<?= $transaksi->id_transaksi ?>" />
                                 <div class="invalid-feedback">
-                                    <?= form_error('kd_jurusan') ?>
+                                    <?= form_error('id_transaksi') ?>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="nama_jurusan">Nama jurusan*</label>
-                                <input class="form-control <?= form_error('nama_jurusan') ? 'is-invalid' : '' ?>" type="text" name="nama_jurusan" min="0" placeholder="Nama jurusan" value="<?= $jurusan->nama_jurusan ?>" />
+                                <label for="tanggal">Tanggal Transaksi*</label>
+                                <input class="form-control <?= form_error('tanggal') ? 'is-invalid' : '' ?>" type="text" name="tanggal" min="0" placeholder="Tanggal Transaksi" value="<?= $transaksi->tanggal ?>" />
                                 <div class="invalid-feedback">
-                                    <?= form_error('nama_jurusan') ?>
+                                    <?= form_error('tanggal') ?>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="kd_dosen">Nama dosen*</label>
-                                <select class="form-control <?= form_error('kd_dosen') ? 'is-invalid' : '' ?>" name="kd_dosen">
-                                    <?php foreach ($dosens as $dosen) : ?>
-                                        <option value="<?= $dosen->kd_dosen; ?>"><?= $dosen->nama_dosen; ?></option>
+                                <label for="total">total Transaksi*</label>
+                                <input class="form-control <?= form_error('total') ? 'is-invalid' : '' ?>" type="text" name="total" min="0" placeholder="Total Transaksi" value="<?= $transaksi->total ?>" />
+                                <div class="invalid-feedback">
+                                    <?= form_error('total') ?>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="kasir_id">ID Kasir*</label>
+                                <select class="form-control <?= form_error('kasir_id') ? 'is-invalid' : '' ?>" name="kasir_id">
+                                    <?php foreach ($kasir as $k) : ?>
+                                        <option value="<?= $k->id_kasir; ?>"><?= $k->nama; ?> - <?= $k->id_kasir; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                                 <div class="invalid-feedback">
-                                    <?= form_error('kd_dosen') ?>
+                                    <?= form_error('kasir_id') ?>
                                 </div>
                             </div>
 

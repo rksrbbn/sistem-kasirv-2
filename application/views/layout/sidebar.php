@@ -37,8 +37,8 @@
                 <h6 class="collapse-header">Menu</h6>
                 <a class="collapse-item" href="<?= base_url('/produk'); ?>">Produk</a>
                 <a class="collapse-item" href="<?= base_url('/kasir'); ?>">Kasir</a>
-                <a class="collapse-item" href="<?= base_url('/jurusan'); ?>">Penjualan</a>
-                <a class="collapse-item" href="<?= base_url('/siswa'); ?>">Transaksi</a>
+                <a class="collapse-item" href="<?= base_url('/penjualan'); ?>">Penjualan</a>
+                <a class="collapse-item" href="<?= base_url('/transaksi'); ?>">Transaksi</a>
             </div>
         </div>
     </li>

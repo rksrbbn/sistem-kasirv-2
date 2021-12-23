@@ -20,7 +20,6 @@ class Kasir extends CI_Controller
     public function create()
     {
         $data['title'] = 'Kasir | Create';
-        // $data['kelamin'] = $this->kasir_model->getJenisKelamin();
         $this->load->view('kasir/create', $data);
     }
 
@@ -28,6 +27,7 @@ class Kasir extends CI_Controller
     {
         
         $this->form_validation->set_rules('nama', 'Nama Kasir', 'required');
+        $this->form_validation->set_rules('kasir_id', 'ID Kasir', 'required');
 
         if ($this->form_validation->run() == true) {
 

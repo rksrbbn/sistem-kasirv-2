@@ -36,7 +36,7 @@
                         <div class="col">
                             <div class="card mb-3">
                                 <div class="card-header d-flex align-items-center">
-                                    <a href="<?= site_url('jurusan/create') ?>"><i class="fas fa-plus"></i> Add New</a>
+                                    <a href="<?= site_url('transaksi/create') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
                                 </div>
                                 <div class="card-body">
                                     <?php if ($this->session->flashdata('pesan')) : ?>
@@ -49,27 +49,32 @@
                                         <table class="display table table-striped table-hover" id="dataTable" width="80%" cellspacing="0">
                                             <thead>
                                                 <tr>
-                                                    <th>Kode jurusan</th>
-                                                    <th>Nama jurusan</th>
-                                                    <th>Nama dosen</th>
+                                                    <th>ID Transaksi</th>
+                                                    <th>Tanggal Transaksi</th>
+                                                    <th>Total</th>
+                                                    <th>ID Kasir</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($jurusans as $jurusan) : ?>
+                                                <?php foreach ($transaksis as $transaksi) : ?>
                                                     <tr>
                                                         <td width="150">
-                                                            <?= $jurusan->kd_jurusan ?>
+                                                            <?= $transaksi->id_transaksi ?>
                                                         </td>
                                                         <td>
-                                                            <?= $jurusan->nama_jurusan ?>
+                                                            <?= $transaksi->tanggal ?>
                                                         </td>
                                                         <td>
-                                                            <?= $jurusan->nama_dosen ?>
+                                                            <?= $transaksi->total ?>
                                                         </td>
-                                                        <td width="250">
-                                                            <a href="<?= site_url('jurusan/edit/' . $jurusan->kd_jurusan) ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
-                                                            <a onclick="deleteConfirm('<?= site_url('jurusan/delete/' . $jurusan->kd_jurusan) ?>')" href="#!" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                        <td>
+                                                            <?= $transaksi->kasir_id ?>
+                                                        </td>
+                                                        <td width="375">
+                                                            <a href="<?= site_url('transaksi/edit/' . $transaksi->id_transaksi) ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
+                                                            <a href="<?= site_url('transaksi/detail/' . $transaksi->id_transaksi) ?>" class="btn btn-primary"><i class="fas fa-eye"></i> Detail</a>
+                                                            <a onclick="deleteConfirm('<?= site_url('transaksi/delete/' . $transaksi->id_transaksi) ?>')" href="#!" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>

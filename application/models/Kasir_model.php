@@ -34,8 +34,8 @@ class Kasir_model extends CI_Model
 
     public function delete($id)
     {
-        $sql = "UPDATE transaksi SET kasir_id = 0 WHERE kasir.id_kasir = ?";
-        $this->db->query($sql, array($id));
+        // $sql = "UPDATE transaksi SET kasir_id = 0 WHERE kasir.id_kasir = ?";
+        // $this->db->query($sql, array($id));
         return $this->db->delete($this->table, array('id_kasir' => $id));
     }
 }
