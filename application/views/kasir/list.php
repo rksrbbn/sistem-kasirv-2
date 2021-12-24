@@ -28,14 +28,11 @@
 
                 <?php $this->load->view('layout/navbar'); ?>
 
-                <!-- End of Topbar -->
-
-
                 <!-- DataTables -->
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <?php $this->load->view('layout/breadcrum'); ?>
+                        <?php $this->load->view('layout/breadcrum'); ?>
                             <div class="card mb-3">
                                 <div class="card-header d-flex align-items-center">
                                     <a href="<?= site_url('kasir/create') ?>"><i class="fas fa-plus"></i> Tambah Data</a>

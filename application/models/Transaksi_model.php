@@ -39,7 +39,6 @@ class Transaksi_model extends CI_Model
         $this->db->insert('penjualan', $data_p);
         $this->db->trans_complete();
         $this->db->trans_status();
-
     }
 
     public function update($data, $id)
