@@ -5,6 +5,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-coffee"></i>
         </div>
+        <div class="sidebar-brand-text mx-3">Cafe</div>
         <!-- <div class="sidebar-brand-text mx-3">SMKN<sup>2</sup></div> -->
     </a>
 
@@ -47,7 +48,9 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
 
     <!-- Sidebar Message -->
     <div class="sidebar-card d-none d-lg-flex">
