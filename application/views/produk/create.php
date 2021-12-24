@@ -29,8 +29,10 @@
                 <?php $this->load->view('layout/navbar'); ?>
 
                 <!-- End of Topbar -->
-
-                <div class="card mb-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                        <div class="card mb-3">
                     <div class="card-header">
                         <a href="<?= site_url('produk/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
                     </div>
@@ -80,6 +82,9 @@
                     </div>
 
 
+                </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
