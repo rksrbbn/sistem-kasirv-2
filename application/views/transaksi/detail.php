@@ -52,7 +52,7 @@
                                                 <tr>
                                                     <th>ID Transaksi</th>
                                                     <th>Kode Produk</th>
-                                                
+                                                    <th>Nama Produk</th>
                                                     <th>Harga</th>
                                                     <th>Quantity</th>
                                                 </tr>
@@ -66,7 +66,9 @@
                                                         <td>
                                                             <?= $d->kd_produk ?>
                                                         </td>
-                                                    
+                                                        <td>
+                                                            <?= $nm_produk ?>
+                                                        </td>
                                                         <td>
                                                             <?= $d->harga ?>
                                                         </td>

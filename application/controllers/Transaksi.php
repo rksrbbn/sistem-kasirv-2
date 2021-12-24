@@ -20,9 +20,9 @@ class Transaksi extends CI_Controller
 
     public function detail($id)
     {
-        // $kd_produk = $this->transaksi_model->getById($id)->kd_produk;
-        // $data['nm_produk'] = $this->produk_model->getByID($kd_produk)->nama;
-        // var_dump($kd_produk);
+        $kd_produk = $this->transaksi_model->getIdDetail($id)->kd_produk;
+        $data['nm_produk'] = $this->produk_model->getByID($kd_produk)->nama;
+        
         $data['detail'] = $this->transaksi_model->getDetail($id);
         $data['title'] = 'Detail Transaksi';
         $this->load->view('transaksi/detail', $data);

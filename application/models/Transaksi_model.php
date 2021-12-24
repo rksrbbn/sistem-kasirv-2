@@ -16,6 +16,10 @@ class Transaksi_model extends CI_Model
         return $this->db->get_where($this->table, ["id_transaksi" => $id])->row();
     }
 
+    public function getIdDetail($id)
+    {
+        return $this->db->get_where('transaksi_detail', ["id_transaksi" => $id])->row();
+    }
     public function getJumlah()
     {
        $query = $this->db->get($this->table);
