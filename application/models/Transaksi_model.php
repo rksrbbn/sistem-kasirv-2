@@ -16,6 +16,16 @@ class Transaksi_model extends CI_Model
         return $this->db->get_where($this->table, ["id_transaksi" => $id])->row();
     }
 
+    public function getJumlah()
+    {
+       $query = $this->db->get($this->table);
+       if($query->num_rows() > 0) {
+           return $query->num_rows();
+       } else {
+            return 0;
+       } 
+    }
+
     public function getKasir()
     {
         $sql = "SELECT * FROM kasir";

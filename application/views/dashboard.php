@@ -27,11 +27,11 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
+                    <!-- Page Heading
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div>
+                    </div> -->
 
                     <!-- Content Row -->
                     <div class="row">
@@ -43,7 +43,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Produk</div>
+                                                Produk</div> <h4><?= $j_produk; ?></h4>
                                         </div>
                                         <div class="col-auto">
                                         <button class="btn">
@@ -64,7 +64,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Kasir</div>
+                                                Kasir</div>  <h4><?= $j_kasir; ?></h4>
                                         </div>
                                         <button class="btn">
                                                 <a href="<?= site_url('kasir/')?>">
@@ -83,7 +83,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                                Data Penjualan</div>
+                                                Data Penjualan</div> <h4><?= $j_penjualan; ?></h4>
                                         </div>
                                         <button class="btn">
                                                 <a href="<?= site_url('kasir/')?>">
@@ -101,7 +101,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Data Transaksi</div>
+                                                Data Transaksi</div> <h4><?= $j_transaksi; ?></h4>
                                         </div>
                                         <div class="col-auto">
                                             <button class="btn">

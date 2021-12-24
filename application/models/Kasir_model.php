@@ -16,6 +16,16 @@ class Kasir_model extends CI_Model
         return $this->db->get_where($this->table, ["id_kasir" => $id])->row();
     }
 
+    public function getJumlah()
+    {
+       $query = $this->db->get($this->table);
+       if($query->num_rows() > 0) {
+           return $query->num_rows();
+       } else {
+            return 0;
+       } 
+    }
+
     public function getJenisKelamin()
     {
         $sql = "SELECT * FROM kasir";
@@ -34,8 +44,6 @@ class Kasir_model extends CI_Model
 
     public function delete($id)
     {
-        // $sql = "UPDATE transaksi SET kasir_id = 0 WHERE kasir.id_kasir = ?";
-        // $this->db->query($sql, array($id));
         return $this->db->delete($this->table, array('id_kasir' => $id));
     }
 }

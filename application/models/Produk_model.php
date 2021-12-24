@@ -22,6 +22,16 @@ class Produk_model extends CI_Model
         return $this->db->get_where($this->table, ["kd_produk" => $id])->row();
     }
 
+    public function getJumlah()
+    {
+       $query = $this->db->get($this->table);
+       if($query->num_rows() > 0) {
+           return $query->num_rows();
+       } else {
+            return 0;
+       } 
+    }
+
     public function save($data)
     {
         return $this->db->insert($this->table, $data);
@@ -34,8 +44,6 @@ class Produk_model extends CI_Model
 
     public function delete($id)
     {
-        // $sql = "DELETE mapel , dosen FROM mapel , dosen WHERE mapel.kd_mapel = dosen.kd_mapel AND mapel.kd_mapel = ?";
-        // return $this->db->query($sql, array($id));
         $sql = "UPDATE transaksi_detail SET kd_produk = 'CF000' WHERE produk.kd_produk = ?";
         $this->db->query($sql, array($id));
         return $this->db->delete($this->table, array('kd_produk' => $id));
